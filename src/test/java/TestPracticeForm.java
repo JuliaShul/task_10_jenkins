@@ -5,10 +5,10 @@ import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class SearchTests {
+public class TestPracticeForm {
 
     @Test
-    void selenideSearchTest() {
+    void testRequiredFields() {
         open("https://www.google.com/");
 
         $(byName("q")).setValue("Selenide").pressEnter();
