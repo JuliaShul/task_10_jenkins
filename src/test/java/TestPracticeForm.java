@@ -22,7 +22,7 @@ public class TestPracticeForm {
         $("[id=userNumber]").setValue("8903930999");
         $("[id=submit]").pressEnter();
 
-        Configuration.timeout = 10000;
+        //form contains text
         $(".table-responsive").shouldHave(text("Julia Shu")
                 , text("jull@mail.ru")
                 , text("Male")
@@ -56,8 +56,7 @@ public class TestPracticeForm {
         $("[id=react-select-4-input]").setValue("Delhi").pressEnter();
         $("[id=submit]").pressEnter();
 
-        Configuration.timeout = 10000;
-
+        //form contains text
         $(".table-responsive").shouldHave(text("Юлия Сергеевна")
                 , text("12@mail.ru")
                 , text("Female")
