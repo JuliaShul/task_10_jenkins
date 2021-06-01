@@ -15,19 +15,19 @@ public class TestPracticeForm {
     void testRequiredFields() {
         open("https://demoqa.com/automation-practice-form/");
 
-        $("[id=firstName]").setValue("Julia");
-        $("[id=lastName]").setValue("Shu");
-        $("[id=userEmail]").setValue("jull@mail.ru");
+        $("#firstName").setValue("Julia");
+        $("#lastName").setValue("Shu");
+        $("#userEmail").setValue("jull@mail.ru");
         $(".custom-control-label").click();
-        $("[id=userNumber]").setValue("8903930999");
-        $("[id=submit]").pressEnter();
+        $("#userNumber").setValue("8903930999");
+        $("#submit").pressEnter();
 
         //form contains text
         $(".table-responsive").shouldHave(text("Julia Shu")
                 , text("jull@mail.ru")
                 , text("Male")
                 , text("8903930999"));
-        $("[id=closeLargeModal]").pressEscape();
+
 
     }
 
@@ -36,25 +36,25 @@ public class TestPracticeForm {
         open("https://demoqa.com/automation-practice-form/");
 
 
-        $("[id=firstName]").setValue("Юлия");
-        $("[id=lastName]").setValue("Сергеевна");
-        $("[id=userEmail]").setValue("12@mail.ru");
+        $("#firstName").setValue("Юлия");
+        $("#lastName").setValue("Сергеевна");
+        $("#userEmail").setValue("12@mail.ru");
         $("[for=gender-radio-2]").click();
-        $("[id=userNumber]").setValue("5555555555");
+        $("#userNumber").setValue("5555555555");
 
-        $("[id=dateOfBirthInput]").click();
+        $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
         $(".react-datepicker__year-select").selectOption("1991");
         $("[aria-label='Choose Sunday, April 14th, 1991']").click();
 
-        $("[id=subjectsInput]").setValue("m").pressEnter();
+        $("#subjectsInput").setValue("m").pressEnter();
         $("[for=hobbies-checkbox-1]").click();
         $("[for=hobbies-checkbox-2]").click();
         $("[for=hobbies-checkbox-3]").click();
-        $("[id=currentAddress]").setValue("Siberia");
-        $("[id=react-select-3-input]").setValue("NCR").pressEnter();
-        $("[id=react-select-4-input]").setValue("Delhi").pressEnter();
-        $("[id=submit]").pressEnter();
+        $("#currentAddress").setValue("Siberia");
+        $("#react-select-3-input").setValue("NCR").pressEnter();
+        $("#react-select-4-input").setValue("Delhi").pressEnter();
+        $("#submit").pressEnter();
 
         //form contains text
         $(".table-responsive").shouldHave(text("Юлия Сергеевна")
@@ -67,7 +67,7 @@ public class TestPracticeForm {
                 , text("Siberia")
                 , text("NCR Delhi")
                 );
-        $("[id=closeLargeModal]").pressEscape();
+
     }
 
 }
@@ -76,3 +76,4 @@ public class TestPracticeForm {
 //$(byName("q")).setValue("Selenide").pressEnter();
 //$("").parent().click()
 //Configuration.timeout = 600000;
+//Selenide.sleep(5000);
