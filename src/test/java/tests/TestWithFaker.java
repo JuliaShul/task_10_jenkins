@@ -1,8 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
-import commonsteps.OpenPage;
 import commonsteps.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 public class TestWithFaker {
 
      Faker faker = new Faker();
+     RegistrationPage registrationPage = new RegistrationPage();
 
      String site = "https://demoqa.com/automation-practice-form/",
             firstName = faker.name().firstName(),
@@ -29,9 +30,6 @@ public class TestWithFaker {
             state = "NCR",
             city = "Delhi";
 
-    RegistrationPage registrationPage = new RegistrationPage();
-    OpenPage openPage = new OpenPage();
-
     @BeforeAll
     static void setStartConfig() {
         Configuration.startMaximized = true;
@@ -40,13 +38,13 @@ public class TestWithFaker {
     @Test
     void testRequiredFields() {
 
-        openPage.open(site);
+        Selenide.open(site);
 
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeUserEmail(email);
+        registrationPage.setFirstName(firstName);
+        registrationPage.setLastName(lastName);
+        registrationPage.setUserEmail(email);
         registrationPage.setGender();
-        registrationPage.typeUserNumber(mobile);
+        registrationPage.setUserNumber(mobile);
         registrationPage.setSubmit();
 
         //form contains text
@@ -54,27 +52,25 @@ public class TestWithFaker {
                 email,
                 gender,
                 mobile);
-
     }
 
     @Test
     void testFullFields() {
 
-        openPage.open(site);
+        Selenide.open(site);
 
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeUserEmail(email);
+        registrationPage.setFirstName(firstName);
+        registrationPage.setLastName(lastName);
+        registrationPage.setUserEmail(email);
         registrationPage.setGender();
-        registrationPage.typeUserNumber(mobile);
-
+        registrationPage.setUserNumber(mobile);
         registrationPage.dateOfBirthInput(dayOfBirth, monthOfBirth, yearOfBirth);
         registrationPage.setSubjectsInput(subject1);
         registrationPage.setCheckbox1(hobby1);
         registrationPage.setCheckbox2(hobby2);
         registrationPage.setCheckbox3(hobby3);
         registrationPage.uploadFrom(picture);
-        registrationPage.typeAddress(currentAddress);
+        registrationPage.setAddress(currentAddress);
         registrationPage.setCountry(state) ;
         registrationPage.setCity(city);
         registrationPage.setSubmit();
@@ -92,9 +88,4 @@ public class TestWithFaker {
                 state + " " + city);
 
     }
-
-
-
-
-
 }

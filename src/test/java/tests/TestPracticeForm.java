@@ -1,12 +1,11 @@
 package tests;
 import com.codeborne.selenide.Configuration;
-import commonsteps.OpenPage;
+import com.codeborne.selenide.Selenide;
 import commonsteps.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class TestPracticeForm extends RegistrationPage{
-
 
     String site = "https://demoqa.com/automation-practice-form/",
             firstName = "Julia",
@@ -27,7 +26,6 @@ public class TestPracticeForm extends RegistrationPage{
             city = "Delhi";
 
     RegistrationPage registrationPage = new RegistrationPage();
-    OpenPage openPage = new OpenPage();
 
     @BeforeAll
     static void setStartConfig() {
@@ -37,13 +35,13 @@ public class TestPracticeForm extends RegistrationPage{
     @Test
     void testRequiredFields() {
 
-        openPage.open(site);
+        Selenide.open(site);
 
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeUserEmail(email);
+        registrationPage.setFirstName(firstName);
+        registrationPage.setLastName(lastName);
+        registrationPage.setUserEmail(email);
         registrationPage.setGender();
-        registrationPage.typeUserNumber(mobile);
+        registrationPage.setUserNumber(mobile);
         registrationPage.setSubmit();
 
         //form contains text
@@ -51,27 +49,25 @@ public class TestPracticeForm extends RegistrationPage{
                 email,
                 gender,
                 mobile);
-
     }
 
     @Test
     void testFullFields() {
 
-        openPage.open(site);
+        Selenide.open(site);
 
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeUserEmail(email);
+        registrationPage.setFirstName(firstName);
+        registrationPage.setLastName(lastName);
+        registrationPage.setUserEmail(email);
         registrationPage.setGender();
-        registrationPage.typeUserNumber(mobile);
-
+        registrationPage.setUserNumber(mobile);
         registrationPage.dateOfBirthInput(dayOfBirth, monthOfBirth, yearOfBirth);
         registrationPage.setSubjectsInput(subject1);
         registrationPage.setCheckbox1(hobby1);
         registrationPage.setCheckbox2(hobby2);
         registrationPage.setCheckbox3(hobby3);
         registrationPage.uploadFrom(picture);
-        registrationPage.typeAddress(currentAddress);
+        registrationPage.setAddress(currentAddress);
         registrationPage.setCountry(state) ;
         registrationPage.setCity(city);
         registrationPage.setSubmit();

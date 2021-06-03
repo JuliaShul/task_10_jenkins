@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
-public class RegistrationPage extends Calendar {
+public class RegistrationPage {
 
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -23,11 +23,11 @@ public class RegistrationPage extends Calendar {
             city = $("#react-select-4-input"),
             uploadPicture = $("#uploadPicture");
 
-    public void typeFirstName( String value ) {
+    public void setFirstName( String value ) {
         firstNameInput.val(value);
     }
 
-    public void typeLastName( String value ) {
+    public void setLastName( String value ) {
         lastNameInput.val(value);
     }
 
@@ -35,11 +35,11 @@ public class RegistrationPage extends Calendar {
         new Calendar().setDate(dayOfBirth, monthOfBirth, yearOfBirth);
     }
 
-    public void typeUserEmail( String value ) {
+    public void setUserEmail( String value ) {
         userEmail.val(value);
     }
 
-    public void typeUserNumber( String value ) {
+    public void setUserNumber( String value ) {
         userNumber.val(value);
     }
 
@@ -47,11 +47,9 @@ public class RegistrationPage extends Calendar {
         submit.pressEnter();
     }
 
-
     public void setGender( ) {
         gender.click();
     }
-
 
     public void setSubjectsInput( String value ) {
         subjectsInput.setValue(value).pressEnter();
@@ -69,7 +67,7 @@ public class RegistrationPage extends Calendar {
         checkbox3.click();
     }
 
-    public void typeAddress( String value ) {
+    public void setAddress( String value ) {
         currentAddress.setValue(value).pressEnter();
     }
 
