@@ -1,11 +1,13 @@
 package tests;
 
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.github.javafaker.Faker;
 import commonsteps.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import static io.qameta.allure.Allure.step;
 
 public class TestWithFaker {
 
@@ -38,45 +40,57 @@ public class TestWithFaker {
     @Test
     void testRequiredFields() {
 
-        Selenide.open(site);
 
-        registrationPage.setFirstName(firstName);
-        registrationPage.setLastName(lastName);
-        registrationPage.setUserEmail(email);
-        registrationPage.setGender();
-        registrationPage.setUserNumber(mobile);
-        registrationPage.setSubmit();
+        step("Open students registration form", () -> Selenide.open(site));
 
-        //form contains text
-        registrationPage.checkTable(firstName+" "+ lastName,
+        step("Fill students registration form", () -> {
+            registrationPage.setFirstName(firstName);
+            registrationPage.setLastName(lastName);
+            registrationPage.setUserEmail(email);
+            registrationPage.setGender();
+            registrationPage.setUserNumber(mobile);
+            registrationPage.setSubmit();
+        });
+
+
+        step("Verify successful form submit", () -> registrationPage.checkTable(firstName+" "+ lastName,
                 email,
                 gender,
-                mobile);
+                mobile));
     }
 
     @Test
     void testFullFields() {
 
-        Selenide.open(site);
+        step("Open students registration form", () -> Selenide.open(site));
 
-        registrationPage.setFirstName(firstName);
-        registrationPage.setLastName(lastName);
-        registrationPage.setUserEmail(email);
-        registrationPage.setGender();
-        registrationPage.setUserNumber(mobile);
-        registrationPage.dateOfBirthInput(dayOfBirth, monthOfBirth, yearOfBirth);
-        registrationPage.setSubjectsInput(subject1);
-        registrationPage.setCheckbox1(hobby1);
-        registrationPage.setCheckbox2(hobby2);
-        registrationPage.setCheckbox3(hobby3);
-        registrationPage.uploadFrom(picture);
-        registrationPage.setAddress(currentAddress);
-        registrationPage.setCountry(state) ;
-        registrationPage.setCity(city);
-        registrationPage.setSubmit();
+        step("Fill students registration form", () -> {
+            step("Fill common data", () -> {
+                registrationPage.setFirstName(firstName);
+                registrationPage.setLastName(lastName);
+                registrationPage.setUserEmail(email);
+                registrationPage.setGender();
+                registrationPage.setUserNumber(mobile);
+            });
+            step("Set date", () -> registrationPage.dateOfBirthInput(dayOfBirth, monthOfBirth, yearOfBirth));
+            step("Set subjects", () -> registrationPage.setSubjectsInput(subject1));
+            step("Set hobbies", () -> {
+                registrationPage.setCheckbox1(hobby1);
+                registrationPage.setCheckbox2(hobby2);
+                registrationPage.setCheckbox3(hobby3);
+            });
+            step("Upload image", () ->
+                registrationPage.uploadFrom(picture));
+            step("Set address", () -> {
+                registrationPage.setAddress(currentAddress);
+                registrationPage.setCountry(state) ;
+                registrationPage.setCity(city);
+            });
+            step("Submit form", () ->
+                registrationPage.setSubmit());
+        });
 
-        //form contains text
-        registrationPage.checkFullTable(firstName+" "+ lastName,
+        step("Verify successful form submit", () -> registrationPage.checkFullTable(firstName+" "+ lastName,
                 email,
                 gender,
                 mobile,
@@ -85,7 +99,6 @@ public class TestWithFaker {
                 hobby1 + ", " + hobby2 + ", " + hobby3,
                 picture,
                 currentAddress,
-                state + " " + city);
-
+                state + " " + city));
     }
 }
