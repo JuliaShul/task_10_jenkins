@@ -32,25 +32,25 @@ public class TestPracticeForm extends RegistrationPage{
     static void setStartConfig() {
         Configuration.startMaximized = true;
     }
-
-    @Test
-    void testRequiredFields() {
-
-        Selenide.open(site);
-
-        registrationPage.setFirstName(firstName);
-        registrationPage.setLastName(lastName);
-        registrationPage.setUserEmail(email);
-        registrationPage.setGender();
-        registrationPage.setUserNumber(mobile);
-        registrationPage.setSubmit();
-
-        //form contains text
-        registrationPage.checkTable(firstName+" "+ lastName,
-                email,
-                gender,
-                mobile);
-    }
+//
+//    @Test
+//    void testRequiredFields() {
+//
+//        Selenide.open(site);
+//
+//        registrationPage.setFirstName(firstName);
+//        registrationPage.setLastName(lastName);
+//        registrationPage.setUserEmail(email);
+//        registrationPage.setGender();
+//        registrationPage.setUserNumber(mobile);
+//        registrationPage.setSubmit();
+//
+//        //form contains text
+//        registrationPage.checkTable(firstName+" "+ lastName,
+//                email,
+//                gender,
+//                mobile);
+//    }
 
     @Test
     void testFullFields() {
