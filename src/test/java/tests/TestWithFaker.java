@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 
-public class TestWithFaker {
+public class TestWithFaker extends TestBase {
 
      Faker faker = new Faker();
      RegistrationPage registrationPage = new RegistrationPage();
