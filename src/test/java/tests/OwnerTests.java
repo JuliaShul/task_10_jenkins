@@ -15,7 +15,7 @@ public class OwnerTests {
 
         System.out.println(login);
         System.out.println(password);
-
+        System.out.println(url);
 
         String message = String.format("I try to login as %s with password %s", login, password);
 

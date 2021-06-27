@@ -27,7 +27,7 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = String.format("https://%s:%s@%s/wd/hub/",
-                Credentials.credentials.login(), Credentials.credentials.password(), Credentials.credentials.url());
+                Credentials.credentials.login(), Credentials.credentials.password(), System.getProperty("url"));
     }
 
     @AfterEach
