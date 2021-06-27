@@ -1,16 +1,17 @@
 package tests;
 
+import configuration.Credentials;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import static configuration.Credentials.credentials;
 
 
 public class OwnerTests {
     @Test
     @Tag("owner")
     void readFromPropertiesTest() {
-        String login = credentials.login();
-        String password = credentials.password();
+        String login = Credentials.credentials.login();
+        String password = Credentials.credentials.password();
+        String url = Credentials.credentials.url();
 
         System.out.println(login);
         System.out.println(password);
