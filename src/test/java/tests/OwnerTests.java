@@ -11,11 +11,9 @@ public class OwnerTests {
     void readFromPropertiesTest() {
         String login = Credentials.credentials.login();
         String password = Credentials.credentials.password();
-        String url = Credentials.credentials.url();
 
         System.out.println(login);
         System.out.println(password);
-        System.out.println(url);
 
         String message = String.format("I try to login as %s with password %s", login, password);
 
