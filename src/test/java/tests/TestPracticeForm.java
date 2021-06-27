@@ -32,25 +32,6 @@ public class TestPracticeForm extends TestBase {
     static void setStartConfig() {
         Configuration.startMaximized = true;
     }
-//
-//    @Test
-//    void testRequiredFields() {
-//
-//        Selenide.open(site);
-//
-//        registrationPage.setFirstName(firstName);
-//        registrationPage.setLastName(lastName);
-//        registrationPage.setUserEmail(email);
-//        registrationPage.setGender();
-//        registrationPage.setUserNumber(mobile);
-//        registrationPage.setSubmit();
-//
-//        //form contains text
-//        registrationPage.checkTable(firstName+" "+ lastName,
-//                email,
-//                gender,
-//                mobile);
-//    }
 
     @Test
     void testFullFields() {
@@ -88,9 +69,3 @@ public class TestPracticeForm extends TestBase {
     }
 
 }
-
-//доп методы
-//$(byName("q")).setValue("Selenide").pressEnter();
-//$("").parent().click()
-//Configuration.timeout = 600000;
-//Selenide.sleep(5000);

@@ -37,30 +37,6 @@ public class TestWithFaker extends TestBase {
         Configuration.startMaximized = true;
     }
 
-//    @Test
-//    void testRequiredFields() {
-//
-//
-//        step("Open students registration form", () -> {
-//            Selenide.open(site);
-//        });
-//
-//        step("Fill students registration form", () -> {
-//            registrationPage.setFirstName(firstName);
-//            registrationPage.setLastName(lastName);
-//            registrationPage.setUserEmail(email);
-//            registrationPage.setGender();
-//            registrationPage.setUserNumber(mobile);
-//            registrationPage.setSubmit();
-//        });
-//
-//
-//        step("Verify successful form submit", () -> registrationPage.checkTable(firstName+" "+ lastName,
-//                email,
-//                gender,
-//                mobile));
-//    }
-
     @Test
     void testFullFields() {
 
