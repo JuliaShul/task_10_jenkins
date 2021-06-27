@@ -37,30 +37,35 @@ tasks.withType(JavaCompile) {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
-
 tasks.withType(Test) {
     systemProperties(System.getProperties())
-
-    systemProperty("browser", System.getProperty("browser", "opera"))
     useJUnitPlatform()
 
-    testLogging {
-        lifecycle {
-//            events "started", "failed"
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
 }
 
-task some_run(type: Test) {
-    useJUnitPlatform {
-        includeTags 'terminal'
-    }
-}
-
-task owner_test(type: Test) {
-    useJUnitPlatform {
-        includeTags 'owner'
-    }
-}
+//tasks.withType(Test) {
+//    systemProperties(System.getProperties())
+//
+//    systemProperty("browser", System.getProperty("browser", "opera"))
+//    useJUnitPlatform()
+//
+//    testLogging {
+//        lifecycle {
+////            events "started", "failed"
+//            events "started", "skipped", "failed", "standard_error", "standard_out"
+//            exceptionFormat "short"
+//        }
+//    }
+//}
+//
+//task some_run(type: Test) {
+//    useJUnitPlatform {
+//        includeTags 'terminal'
+//    }
+//}
+//
+//task owner_test(type: Test) {
+//    useJUnitPlatform {
+//        includeTags 'owner'
+//    }
+//}
