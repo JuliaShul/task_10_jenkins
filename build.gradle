@@ -39,10 +39,24 @@ tasks.withType(JavaCompile) {
 }
 tasks.withType(Test) {
     systemProperties(System.getProperties())
+    systemProperty("browser", System.getProperty("browser", "opera"))
+    systemProperty("link")
     useJUnitPlatform()
 
-}
+    testLogging {
+        lifecycle {
+//            events "started", "failed"
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 
+}
+task some_run(type: Test) {
+    useJUnitPlatform {
+        includeTags 'terminal'
+    }
+}
 //tasks.withType(Test) {
 //    systemProperties(System.getProperties())
 //
@@ -58,10 +72,7 @@ tasks.withType(Test) {
 //    }
 //}
 //
-//task some_run(type: Test) {
-//    useJUnitPlatform {
-//        includeTags 'terminal'
-//    }
+//
 //}
 //
 //task owner_test(type: Test) {
