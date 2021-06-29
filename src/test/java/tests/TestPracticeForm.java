@@ -6,7 +6,7 @@ import commonsteps.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class TestPracticeForm  {
+public class TestPracticeForm extends TestBase {
 
     String site = "https://demoqa.com/automation-practice-form/",
             firstName = "Julia",

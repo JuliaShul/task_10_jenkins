@@ -39,6 +39,7 @@ tasks.withType(JavaCompile) {
 }
 tasks.withType(Test) {
     systemProperties(System.getProperties())
+    systemProperty("url", System.getProperty("url", "opera"))
     systemProperty("browser", System.getProperty("browser", "opera"))
 
     useJUnitPlatform()
