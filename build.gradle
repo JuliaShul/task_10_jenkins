@@ -76,8 +76,8 @@ task some_run(type: Test) {
 //
 //}
 //
-//task owner_test(type: Test) {
-//    useJUnitPlatform {
-//        includeTags 'owner'
-//    }
-//}
+task telegram_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'telegram'
+    }
+}

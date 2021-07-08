@@ -3,6 +3,7 @@ package tests;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("telegram")
 public class TestProperties {
 
     @Test

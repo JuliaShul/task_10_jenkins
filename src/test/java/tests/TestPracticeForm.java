@@ -4,8 +4,10 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import commonsteps.RegistrationPage;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("telegram")
 public class TestPracticeForm extends TestBase {
 
     String site = "https://demoqa.com/automation-practice-form/",
